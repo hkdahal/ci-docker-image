@@ -15,7 +15,13 @@ fi
 log-info "Setting up SSH Key"
 
 mkdir -p /root/.ssh
-echo "$SSH_PRIVATE_KEY" | tr -d '\r' >/root/.ssh/id_rsa
+
+ssh_private_key="-----BEGIN OPENSSH PRIVATE KEY-----
+$SSH_PRIVATE_KEY
+-----END OPENSSH PRIVATE KEY-----
+"
+
+echo ssh_private_key | tr -d '\r' >/root/.ssh/id_rsa
 chmod 600 /root/.ssh/id_rsa
 chmod 700 /root/.ssh
 
