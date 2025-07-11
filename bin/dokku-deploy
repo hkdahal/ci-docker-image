@@ -36,6 +36,7 @@ fi
 
 setup-ssh
 
+cd $PWD
 commit_sha="$(parse-ci-commit)"
 app_name="$(parse-app-name)"
 ssh_remote="ssh://dokku@$(parse-ssh-host):$(parse-ssh-port)"
