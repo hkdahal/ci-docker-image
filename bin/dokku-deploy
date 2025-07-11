@@ -31,12 +31,13 @@ if [ -n "$PLUGIN_REVIEW_APP_NAME" ]; then
 fi
 
 if [ -z "$BRANCH" ]; then
-  BRANCH="master"
+  BRANCH="main"
 fi
 
 setup-ssh
 
-cd $PWD
+cd './app'
+
 commit_sha="$(parse-ci-commit)"
 app_name="$(parse-app-name)"
 ssh_remote="ssh://dokku@$(parse-ssh-host):$(parse-ssh-port)"
